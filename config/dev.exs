@@ -35,8 +35,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :pinster_phoenix, PinsterPhoenix.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "pinster_phoenix_dev",
   hostname: "localhost",
   pool_size: 10
