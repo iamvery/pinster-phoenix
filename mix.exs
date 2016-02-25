@@ -18,8 +18,11 @@ defmodule PinsterPhoenix.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {PinsterPhoenix, []},
-     applications: apps]
+     applications: apps(Mix.env)]
   end
+
+  def apps(:test), do: [:hound | apps]
+  def apps(_), do: apps
 
   def apps do
     [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex]
