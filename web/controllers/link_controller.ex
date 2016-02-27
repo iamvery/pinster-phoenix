@@ -20,7 +20,8 @@ defmodule PinsterPhoenix.LinkController do
 
   def delete(conn, %{"id" => id}) do
     # TODO error handling
-    Repo.delete!(Link, id)
+    link = Repo.get!(Link, id)
+    Repo.delete!(link)
     redirect conn, to: "/links"
   end
 end
