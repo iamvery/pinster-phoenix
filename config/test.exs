@@ -15,3 +15,5 @@ config :pinster_phoenix, PinsterPhoenix.Repo,
   database: "pinster_phoenix_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :hound, driver: "phantomjs"
