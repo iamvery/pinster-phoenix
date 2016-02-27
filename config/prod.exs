@@ -66,7 +66,3 @@ config :pinster_phoenix, PinsterPhoenix.Repo,
 # for the new static assets to be served after a hot upgrade:
 #
 #     config :pinster_phoenix, PinsterPhoenix.Endpoint, root: "."
-
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
