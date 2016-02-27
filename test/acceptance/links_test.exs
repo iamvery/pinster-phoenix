@@ -7,8 +7,8 @@ defmodule PinsterPhoenix.LinksTest do
   alias PinsterPhoenix.Link
 
   test "displays all links" do
-    Link.changeset(%Link{}, %{url: "http://iamvery.com"}) |> Repo.insert!
-    Link.changeset(%Link{}, %{url: "http://google.com"}) |> Repo.insert!
+    Repo.insert! %Link{url: "http://iamvery.com"}
+    Repo.insert! %Link{url: "http://google.com"}
 
     navigate_to "/links"
 
