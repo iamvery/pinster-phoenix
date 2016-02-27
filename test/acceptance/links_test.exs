@@ -25,4 +25,18 @@ defmodule PinsterPhoenix.LinksTest do
 
     assert page_source =~ "iamvery.com"
   end
+
+  test "delete link" do
+    Repo.insert! %Link{url: "http://iamvery.com"}
+
+    navigate_to "/links"
+
+    element_id = find_element(:link_text, "×")
+    click element_id
+
+    refute page_source =~ "iamvery.com"
+    # TODO how do you ensure that this test is valid without checking that the
+    # 404 page is not being displayed?
+    refute page_source =~ "not found"
+  end
 end

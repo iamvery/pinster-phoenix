@@ -17,4 +17,10 @@ defmodule PinsterPhoenix.LinkController do
     # TODO use link_path helper
     redirect conn, to: "/links"
   end
+
+  def delete(conn, %{id: id}) do
+    # TODO error handling
+    Repo.delete!(Link, id)
+    redirect conn, to: "/links"
+  end
 end

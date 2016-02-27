@@ -1,3 +1,5 @@
 <li>
   <%= link @link.url, to: @link.url %>
+  <% # TODO use link_path helper %>
+  <%= link "×", to: "/links/#{@link.id}", method: :delete %>
 </li>
