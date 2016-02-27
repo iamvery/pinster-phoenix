@@ -1,0 +1,4 @@
+<li>
+  <% # TODO is there a helper method like link_to in phoenix? %>
+  <a href="<%= @link.url %>"><%= @link.url %></a>
+</li>

@@ -1,0 +1,5 @@
+<ul>
+  <%= for link <- @links do %>
+    <%= render "link.html", link: link %>
+  <% end %>
+</ul>
