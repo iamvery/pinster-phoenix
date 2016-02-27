@@ -15,4 +15,14 @@ defmodule PinsterPhoenix.LinksTest do
     assert page_source =~ "iamvery.com"
     assert page_source =~ "google.com"
   end
+
+  test "create link" do
+    navigate_to "/links"
+
+    element_id = find_element(:id, "link_url")
+    fill_field element_id, "http://iamvery.com"
+    submit_element(element_id)
+
+    assert page_source =~ "iamvery.com"
+  end
 end
