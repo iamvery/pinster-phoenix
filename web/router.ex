@@ -17,7 +17,7 @@ defmodule PinsterPhoenix.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/links", LinkController, only: [:index]
+    resources "/links", LinkController, only: [:index, :create]
   end
 
   # Other scopes may use custom stacks.

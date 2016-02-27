@@ -1,3 +1,11 @@
+<% # TODO why doesn't link_path work here %>
+<%= form_for @link, "/links", fn f -> %>
+  <label>
+    Url <%= url_input f, :url %>
+  </label>
+  <%= submit "Create link" %>
+<% end %>
+
 <ul>
   <%= for link <- @links do %>
     <%= render "link.html", link: link %>
