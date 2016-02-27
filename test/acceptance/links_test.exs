@@ -38,5 +38,6 @@ defmodule PinsterPhoenix.LinksTest do
     # TODO how do you ensure that this test is valid without checking that the
     # 404 page is not being displayed?
     refute page_source =~ "not found"
+    refute page_source =~ "error"
   end
 end
