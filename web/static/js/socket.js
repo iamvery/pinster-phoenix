@@ -67,4 +67,8 @@ channel.on("create", payload => {
     .click(event => event.target.parentNode.submit())
 })
 
+channel.on("delete", payload => {
+  $("[data-link-id=" + payload.link.id + "]").remove()
+})
+
 export default socket
