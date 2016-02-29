@@ -61,6 +61,10 @@ channel.join()
 
 channel.on("create", payload => {
   $(".links").append(payload.link.rendered)
+    // fix for phoenix form links; when added to the page after render, they
+    // dont' get the callback attached.
+    .find("[data-submit^=parent]")
+    .click(event => event.target.parentNode.submit())
 })
 
 export default socket
