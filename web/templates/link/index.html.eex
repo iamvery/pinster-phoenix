@@ -6,7 +6,7 @@
   <%= submit "Create link" %>
 <% end %>
 
-<ul>
+<ul class="links">
   <%= for link <- @links do %>
     <%= render "link.html", link: link %>
   <% end %>

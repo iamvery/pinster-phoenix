@@ -3,6 +3,7 @@ defmodule PinsterPhoenix.UserSocket do
 
   ## Channels
   # channel "rooms:*", PinsterPhoenix.RoomChannel
+  channel "links", PinsterPhoenix.LinkChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

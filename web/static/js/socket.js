@@ -54,9 +54,21 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-let channel = socket.channel("topic:subtopic", {})
+let channel = socket.channel("links", {})
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
+
+channel.on("create", payload => {
+  $(".links").append(payload.link.rendered)
+    // fix for phoenix form links; when added to the page after render, they
+    // dont' get the callback attached.
+    .find("[data-submit^=parent]")
+    .click(event => event.target.parentNode.submit())
+})
+
+channel.on("delete", payload => {
+  $("[data-link-id=" + payload.link.id + "]").remove()
+})
 
 export default socket
