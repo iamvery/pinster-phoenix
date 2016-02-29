@@ -13,7 +13,8 @@ defmodule PinsterPhoenix.LinkController do
     # TODO you can use a model with Repo.insert, how can I get params into a
     # model?
     # TODO error handling?
-    Link.changeset(%Link{}, link_params) |> Repo.insert!
+    Link.changeset(%Link{}, link_params)
+    |> Repo.insert!
     # TODO use link_path helper
     redirect conn, to: "/links"
   end
