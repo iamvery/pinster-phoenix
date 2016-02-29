@@ -3,7 +3,7 @@ defmodule PinsterPhoenix.LinkController do
 
   import PinsterPhoenix.Endpoint, only: [broadcast!: 3]
 
-  alias PinsterPhoenix.Link
+  alias PinsterPhoenix.{Link, LinkView}
 
   def index(conn, _params) do
     link = Link.changeset(%Link{})
@@ -28,7 +28,7 @@ defmodule PinsterPhoenix.LinkController do
   end
 
   defp render_link_to_string(link) do
-    Phoenix.View.render_to_string(PinsterPhoenix.LinkView, "link.html", link: link)
+    Phoenix.View.render_to_string(LinkView, "link.html", link: link)
   end
 
   def delete(conn, %{"id" => id}) do
