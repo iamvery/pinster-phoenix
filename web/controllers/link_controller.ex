@@ -15,8 +15,18 @@ defmodule PinsterPhoenix.LinkController do
     # TODO error handling?
     Link.changeset(%Link{}, link_params)
     |> Repo.insert!
+    |> broadcast_create
     # TODO use link_path helper
     redirect conn, to: "/links"
+  end
+
+  defp broadcast_create(link) do
+    rendered = render_link_to_string(link)
+    PinsterPhoenix.Endpoint.broadcast!("links", "create", %{link: %{rendered: rendered}})
+  end
+
+  defp render_link_to_string(link) do
+    Phoenix.View.render_to_string(PinsterPhoenix.LinkView, "link.html", link: link)
   end
 
   def delete(conn, %{"id" => id}) do
