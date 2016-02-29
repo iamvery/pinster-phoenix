@@ -33,6 +33,11 @@ defmodule PinsterPhoenix.LinkController do
     # TODO error handling
     link = Repo.get!(Link, id)
     Repo.delete!(link)
+    |> broadcast_delete
     redirect conn, to: "/links"
+  end
+
+  defp broadcast_delete(link) do
+    PinsterPhoenix.Endpoint.broadcast!("links", "delete", %{link: %{id: link.id}})
   end
 end
