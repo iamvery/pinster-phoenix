@@ -1,6 +1,8 @@
 defmodule PinsterPhoenix.LinkController do
   use PinsterPhoenix.Web, :controller
 
+  import PinsterPhoenix.Endpoint, only: [broadcast!: 3]
+
   alias PinsterPhoenix.Link
 
   def index(conn, _params) do
@@ -22,7 +24,7 @@ defmodule PinsterPhoenix.LinkController do
 
   defp broadcast_create(link) do
     rendered = render_link_to_string(link)
-    PinsterPhoenix.Endpoint.broadcast!("links", "create", %{link: %{rendered: rendered}})
+    broadcast!("links", "create", %{link: %{rendered: rendered}})
   end
 
   defp render_link_to_string(link) do
@@ -38,6 +40,6 @@ defmodule PinsterPhoenix.LinkController do
   end
 
   defp broadcast_delete(link) do
-    PinsterPhoenix.Endpoint.broadcast!("links", "delete", %{link: %{id: link.id}})
+    broadcast!("links", "delete", %{link: %{id: link.id}})
   end
 end
