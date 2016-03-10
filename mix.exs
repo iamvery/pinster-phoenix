@@ -18,11 +18,8 @@ defmodule PinsterPhoenix.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {PinsterPhoenix, []},
-     applications: apps]
-  end
-
-  def apps do
-    [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :phoenix_ecto, :postgrex]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
+                    :phoenix_ecto, :postgrex]]
   end
 
   # Specifies which paths to compile per environment.
